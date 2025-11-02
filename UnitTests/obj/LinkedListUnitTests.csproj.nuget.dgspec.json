@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hednaw\\Downloads\\LinkedList\\ListaTest\\LinkedListUnitTests.csproj": {}
+    "C:\\Users\\hednaw\\Downloads\\LinkedList\\UnitTests\\LinkedListUnitTests.csproj": {}
   },
   "projects": {
     "C:\\Users\\hednaw\\Downloads\\LinkedList\\LinkedList\\LinkedList.csproj": {
@@ -68,14 +68,14 @@
         }
       }
     },
-    "C:\\Users\\hednaw\\Downloads\\LinkedList\\ListaTest\\LinkedListUnitTests.csproj": {
+    "C:\\Users\\hednaw\\Downloads\\LinkedList\\UnitTests\\LinkedListUnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hednaw\\Downloads\\LinkedList\\ListaTest\\LinkedListUnitTests.csproj",
+        "projectUniqueName": "C:\\Users\\hednaw\\Downloads\\LinkedList\\UnitTests\\LinkedListUnitTests.csproj",
         "projectName": "LinkedListUnitTests",
-        "projectPath": "C:\\Users\\hednaw\\Downloads\\LinkedList\\ListaTest\\LinkedListUnitTests.csproj",
+        "projectPath": "C:\\Users\\hednaw\\Downloads\\LinkedList\\UnitTests\\LinkedListUnitTests.csproj",
         "packagesPath": "C:\\Users\\hednaw\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hednaw\\Downloads\\LinkedList\\ListaTest\\obj\\",
+        "outputPath": "C:\\Users\\hednaw\\Downloads\\LinkedList\\UnitTests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hednaw\\AppData\\Roaming\\NuGet\\NuGet.Config",
