@@ -135,5 +135,89 @@ namespace LinkedListTests
             Assert.DoesNotThrow(() => lista.ToString("-"));
             Assert.That(lista.liczbaElementów, Is.EqualTo(5));
         }
+
+        [Test]
+        public void Remove_ByElement_RemovesCorrectNode()
+        {
+            // Arrange
+            var list = new Lista();
+            list.DodajPo((Element?)null, 1); // add first
+            var second = new Element(2);
+            list.DodajPo(list.head, 2);
+            list.DodajPo(list.tail, 3);
+
+            // Act
+            list.Remove(list.head!.next!); // remove element with value 2
+
+            // Assert
+            var arr = list.ToArray();
+            Assert.That(list.liczbaElementów, Is.EqualTo(2));
+            Assert.That(arr, Is.EqualTo(new[] { 1, 3 }));
+            Assert.IsNull(list.head!.next!.next);
+        }
+
+        [Test]
+        public void Remove_ByIndex_RemovesCorrectNode()
+        {
+            // Arrange
+            var list = new Lista();
+            list.DodajPo((Element?)null, 10);
+            list.DodajPo(list.head, 20);
+            list.DodajPo(list.tail, 30);
+
+            // Act
+            list.Remove(1); // remove middle element (value 20)
+
+            // Assert
+            var arr = list.ToArray();
+            Assert.That(list.liczbaElementów, Is.EqualTo(2));
+            Assert.That(arr, Is.EqualTo(new[] { 10, 30 }));
+        }
+
+        [Test]
+        public void Remove_Head_RemovesFirstElement()
+        {
+            var list = new Lista();
+            list.DodajPo((Element?)null, 5);
+            list.DodajPo(list.head, 10);
+            list.DodajPo(list.tail, 15);
+
+            list.Remove(0);
+
+            Assert.That(list.ToArray(), Is.EqualTo(new[] { 10, 15 }));
+            Assert.That(list.liczbaElementów, Is.EqualTo(2));
+            Assert.That(list.head!.wartosc, Is.EqualTo(10));
+        }
+
+        [Test]
+        public void Remove_Tail_RemovesLastElement()
+        {
+            var list = new Lista();
+            list.DodajPo((Element?)null, 5);
+            list.DodajPo(list.head, 10);
+            list.DodajPo(list.tail, 15);
+
+            list.Remove(list.tail!);
+
+            Assert.That(list.ToArray(), Is.EqualTo(new[] { 5, 10 }));
+            Assert.That(list.liczbaElementów, Is.EqualTo(2));
+            Assert.That(list.tail!.wartosc, Is.EqualTo(10));
+        }
+
+        [Test]
+        public void Remove_InvalidIndex_ThrowsException()
+        {
+            var list = new Lista();
+            list.DodajPo((Element?)null, 1);
+
+            Assert.Throws<IndexOutOfRangeException>(() => list.Remove(5));
+        }
+
+        [Test]
+        public void Remove_NullElement_ThrowsArgumentNullException()
+        {
+            var list = new Lista();
+            Assert.Throws<ArgumentNullException>(() => list.Remove((Element?)null!));
+        }
     }
 }

@@ -2,6 +2,7 @@
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -307,6 +308,89 @@ namespace LinkedList
                 e.wartosc = liczba;
             } else
             {
+                throw new IndexOutOfRangeException("Element jest pusty");
+            }
+        }
+
+        public void Remove(int index)
+        {
+            Element e = this.getElement(index);
+            if (e != null)
+            {
+                if (this.liczbaElementów == 1)
+                {
+                    e = null;
+                    this.liczbaElementów--;
+                    return;
+                }
+
+                if (e == this.head)
+                {
+                    e.next = this.head;
+                    e = null;
+                    return;
+                }
+
+                if (e == this.tail)
+                {
+                    e.prev = this.tail;
+                    e = null;
+                    return;
+                }
+
+                e.prev.next = e.next;
+                e.next.prev = e.prev;
+                this.liczbaElementów--;
+
+
+
+            } else
+            {
+            if (liczbaElementów == 0)
+                {
+                    throw new Exception("Lista jest pusta");
+                }
+             throw new IndexOutOfRangeException("Element o indexie " + index + " jest pusty");
+            }
+        }
+        public void Remove(Element e)
+        {
+            if (e != null)
+            {
+                if (this.liczbaElementów == 1)
+                {
+                    e = null;
+                    this.liczbaElementów--;
+                    return;
+                }
+
+                if (e == this.head)
+                {
+                    e.next = this.head;
+                    e = null;
+                    return;
+                }
+
+                if (e == this.tail)
+                {
+                    e.prev = this.tail;
+                    e = null;
+                    return;
+                }
+
+                e.prev.next = e.next;
+                e.next.prev = e.prev;
+                this.liczbaElementów--;
+
+
+
+            }
+            else
+            {
+                if (liczbaElementów == 0)
+                {
+                    throw new Exception("Lista jest pusta");
+                }
                 throw new IndexOutOfRangeException("Element jest pusty");
             }
         }
