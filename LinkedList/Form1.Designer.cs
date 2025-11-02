@@ -37,15 +37,17 @@
             label3 = new Label();
             listBox1 = new ListBox();
             listBox2 = new ListBox();
+            btn3 = new Button();
+            btnZmien = new Button();
             ((System.ComponentModel.ISupportInitialize)UpDownValue).BeginInit();
             ((System.ComponentModel.ISupportInitialize)UpDownIndex).BeginInit();
             SuspendLayout();
             // 
             // btnPrzed
             // 
-            btnPrzed.Location = new Point(418, 12);
+            btnPrzed.Location = new Point(274, 6);
             btnPrzed.Name = "btnPrzed";
-            btnPrzed.Size = new Size(170, 23);
+            btnPrzed.Size = new Size(120, 23);
             btnPrzed.TabIndex = 1;
             btnPrzed.Text = "Dodaj Przed";
             btnPrzed.UseVisualStyleBackColor = true;
@@ -53,16 +55,16 @@
             // 
             // UpDownValue
             // 
-            UpDownValue.Location = new Point(274, 12);
+            UpDownValue.Location = new Point(148, 6);
             UpDownValue.Name = "UpDownValue";
             UpDownValue.Size = new Size(120, 23);
             UpDownValue.TabIndex = 2;
             // 
             // btnPo
             // 
-            btnPo.Location = new Point(418, 43);
+            btnPo.Location = new Point(274, 37);
             btnPo.Name = "btnPo";
-            btnPo.Size = new Size(170, 23);
+            btnPo.Size = new Size(120, 23);
             btnPo.TabIndex = 3;
             btnPo.Text = "Dodaj Po";
             btnPo.UseVisualStyleBackColor = true;
@@ -79,7 +81,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(208, 16);
+            label2.Location = new Point(82, 10);
             label2.Name = "label2";
             label2.Size = new Size(50, 15);
             label2.TabIndex = 5;
@@ -87,7 +89,7 @@
             // 
             // UpDownIndex
             // 
-            UpDownIndex.Location = new Point(274, 43);
+            UpDownIndex.Location = new Point(148, 37);
             UpDownIndex.Name = "UpDownIndex";
             UpDownIndex.Size = new Size(120, 23);
             UpDownIndex.TabIndex = 6;
@@ -95,7 +97,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(217, 45);
+            label3.Location = new Point(91, 39);
             label3.Name = "label3";
             label3.Size = new Size(41, 15);
             label3.TabIndex = 7;
@@ -121,11 +123,32 @@
             listBox2.TabIndex = 8;
             listBox2.SelectedIndexChanged += listBox2_SelectedIndexChanged;
             // 
+            // btn3
+            // 
+            btn3.Location = new Point(418, 6);
+            btn3.Name = "btn3";
+            btn3.Size = new Size(120, 23);
+            btn3.TabIndex = 1;
+            btn3.Text = "Usuń";
+            btn3.UseVisualStyleBackColor = true;
+            btn3.Click += btn3_Click;
+            // 
+            // btnZmien
+            // 
+            btnZmien.Location = new Point(418, 37);
+            btnZmien.Name = "btnZmien";
+            btnZmien.Size = new Size(120, 23);
+            btnZmien.TabIndex = 9;
+            btnZmien.Text = "Zmien Wartosc";
+            btnZmien.UseVisualStyleBackColor = true;
+            btnZmien.Click += btnZmien_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnZmien);
             Controls.Add(listBox2);
             Controls.Add(listBox1);
             Controls.Add(label3);
@@ -134,6 +157,7 @@
             Controls.Add(label1);
             Controls.Add(btnPo);
             Controls.Add(UpDownValue);
+            Controls.Add(btn3);
             Controls.Add(btnPrzed);
             Name = "Form1";
             Text = "Form1";
@@ -155,5 +179,7 @@
         private Label label3;
         private ListBox listBox1;
         private ListBox listBox2;
+        private Button btn3;
+        private Button btnZmien;
     }
 }

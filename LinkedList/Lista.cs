@@ -147,7 +147,7 @@ namespace LinkedList
 
             if (index > liczbaElementów || index < 0)
             {
-                throw new IndexOutOfRangeException("Index " + index + " is out of bounds!");
+                throw new IndexOutOfRangeException("Index " + index + " is out of range");
             }
 
 
@@ -261,7 +261,7 @@ namespace LinkedList
         {
             if (index >= liczbaElementów || index < 0)
             {
-                throw new IndexOutOfRangeException("Index " + index + " is out of bounds!");
+                throw new IndexOutOfRangeException("Index " + index + " is out of range");
             }
             var e = this.head;
             for (int i = 0; i < index; i++)
@@ -276,7 +276,7 @@ namespace LinkedList
 
             if (index >= liczbaElementów || index < 0)
             {
-                throw new IndexOutOfRangeException("Index " + index + " is out of bounds!");
+                throw new IndexOutOfRangeException("Index " + index + " is out of range");
             }
             var e = this.head;
             for (int i = 0; i < index; i++)
@@ -290,7 +290,7 @@ namespace LinkedList
         {
             if (index >= liczbaElementów || index < 0)
             {
-                throw new IndexOutOfRangeException("Index " + index + " is out of bounds!");
+                throw new IndexOutOfRangeException("Index " + index + " is out range");
             }
             var e = this.head;
             for (int i = 0; i < index; i++)
@@ -314,85 +314,45 @@ namespace LinkedList
 
         public void Remove(int index)
         {
+            if (index < 0 || index >= liczbaElementów)
+                throw new IndexOutOfRangeException($"Index {index} is out of range.");
+
             Element e = this.getElement(index);
-            if (e != null)
-            {
-                if (this.liczbaElementów == 1)
-                {
-                    e = null;
-                    this.liczbaElementów--;
-                    return;
-                }
-
-                if (e == this.head)
-                {
-                    e.next = this.head;
-                    e = null;
-                    return;
-                }
-
-                if (e == this.tail)
-                {
-                    e.prev = this.tail;
-                    e = null;
-                    return;
-                }
-
-                e.prev.next = e.next;
-                e.next.prev = e.prev;
-                this.liczbaElementów--;
-
-
-
-            } else
-            {
-            if (liczbaElementów == 0)
-                {
-                    throw new Exception("Lista jest pusta");
-                }
-             throw new IndexOutOfRangeException("Element o indexie " + index + " jest pusty");
-            }
+            this.Remove(e);
         }
         public void Remove(Element e)
         {
-            if (e != null)
+            if (e == null)
+                throw new ArgumentNullException(nameof(e));
+
+            if (liczbaElementów == 0)
+                throw new InvalidOperationException("lista jest pusta");
+
+            if (e == head)
             {
-                if (this.liczbaElementów == 1)
-                {
-                    e = null;
-                    this.liczbaElementów--;
-                    return;
-                }
-
-                if (e == this.head)
-                {
-                    e.next = this.head;
-                    e = null;
-                    return;
-                }
-
-                if (e == this.tail)
-                {
-                    e.prev = this.tail;
-                    e = null;
-                    return;
-                }
-
-                e.prev.next = e.next;
-                e.next.prev = e.prev;
-                this.liczbaElementów--;
-
-
-
+                head = head.next;
+                if (head != null)
+                    head.prev = null;
+                else
+                    tail = null;
+            }
+            else if (e == tail)
+            {
+                tail = tail.prev;
+                if (tail != null)
+                    tail.next = null;
+                else
+                    head = null;
             }
             else
             {
-                if (liczbaElementów == 0)
-                {
-                    throw new Exception("Lista jest pusta");
-                }
-                throw new IndexOutOfRangeException("Element jest pusty");
+                if (e.prev != null)
+                    e.prev.next = e.next;
+                if (e.next != null)
+                    e.next.prev = e.prev;
             }
+
+            liczbaElementów--;
         }
 
     }

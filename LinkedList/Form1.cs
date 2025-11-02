@@ -93,6 +93,15 @@ namespace LinkedList
             }
 
             _syncingSelection = false;
+            if (listBox2.SelectedIndex == -1)
+            {
+                UpDownIndex.Value = 0;
+            }
+            else
+            {
+                UpDownIndex.Value = listBox2.SelectedIndex;
+            }
+
         }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -107,6 +116,23 @@ namespace LinkedList
 
             _syncingSelection = false;
             UpDownIndex.Value = listBox2.SelectedIndex;
+        }
+
+        private void btn3_Click(object sender, EventArgs e)
+        {
+            var index = (int)UpDownIndex.Value;
+
+            if (index < 0 || index >= l.liczbaElementów) return;
+            else
+                l.Remove(index);
+            UpDownIndex.Maximum = l.liczbaElementów;
+            RefreshListBoxes();
+        }
+
+        private void btnZmien_Click(object sender, EventArgs e)
+        {
+            l.set((int)UpDownIndex.Value, (int)UpDownValue.Value);
+            RefreshListBoxes();
         }
 
     }
