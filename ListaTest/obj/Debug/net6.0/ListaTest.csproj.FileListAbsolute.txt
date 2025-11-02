@@ -1,0 +1,5 @@
+C:\Users\hednaw\Downloads\ListaTest\obj\Debug\net6.0\ListaTest.csproj.AssemblyReference.cache
+C:\Users\hednaw\Downloads\ListaTest\obj\Debug\net6.0\ListaTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hednaw\Downloads\ListaTest\obj\Debug\net6.0\ListaTest.AssemblyInfoInputs.cache
+C:\Users\hednaw\Downloads\ListaTest\obj\Debug\net6.0\ListaTest.AssemblyInfo.cs
+C:\Users\hednaw\Downloads\ListaTest\obj\Debug\net6.0\ListaTest.csproj.CoreCompileInputs.cache
