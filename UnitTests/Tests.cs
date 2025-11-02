@@ -131,7 +131,6 @@ namespace LinkedListTests
             lista.DodajPo(1, 30);
             lista.DodajPrzed(2, 25);
             lista.DodajPo(2, 27);
-
             Assert.DoesNotThrow(() => lista.ToString("-"));
             Assert.That(lista.liczbaElementów, Is.EqualTo(5));
         }
@@ -139,17 +138,12 @@ namespace LinkedListTests
         [Test]
         public void Remove_ByElement_RemovesCorrectNode()
         {
-            // Arrange
             var list = new Lista();
-            list.DodajPo((Element?)null, 1); // add first
+            list.DodajPo((Element?)null, 1);
             var second = new Element(2);
             list.DodajPo(list.head, 2);
             list.DodajPo(list.tail, 3);
-
-            // Act
-            list.Remove(list.head!.next!); // remove element with value 2
-
-            // Assert
+            list.Remove(list.head!.next!);
             var arr = list.ToArray();
             Assert.That(list.liczbaElementów, Is.EqualTo(2));
             Assert.That(arr, Is.EqualTo(new[] { 1, 3 }));
@@ -159,16 +153,11 @@ namespace LinkedListTests
         [Test]
         public void Remove_ByIndex_RemovesCorrectNode()
         {
-            // Arrange
             var list = new Lista();
             list.DodajPo((Element?)null, 10);
             list.DodajPo(list.head, 20);
             list.DodajPo(list.tail, 30);
-
-            // Act
-            list.Remove(1); // remove middle element (value 20)
-
-            // Assert
+            list.Remove(1);
             var arr = list.ToArray();
             Assert.That(list.liczbaElementów, Is.EqualTo(2));
             Assert.That(arr, Is.EqualTo(new[] { 10, 30 }));
